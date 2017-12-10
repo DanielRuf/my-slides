@@ -1,0 +1,165 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/css/theme/white.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+		<style>
+		.reveal img, .reveal video, .reveal iframe {
+			max-height: 80vh;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					HTTP/2
+				</section>
+				<section>
+					<img src="images/http2.png"><br>
+					<small>https://caniuse.com/#feat=http2</small>
+				</section>
+				<section>
+					HTTP/1.1 <span class="fragment">&rarr; SPDY </span><span class="fragment">&rarr; HTTP/2</span>
+				</section>
+				<section>
+					<img src="images/frame.png"><br>
+					<small>https://hpbn.co/http2/</small>
+				</section>
+				<section>
+				<img src="images/streams.png"><br>
+					<small>https://hpbn.co/http2/</small>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">HPACK</li>
+						<li class="fragment">multiplexing</li>
+						<li class="fragment">server push</li>
+					</ul>
+				</section>
+				<section>
+					HPACK Compression – Huffman Encoding<br>
+					<div class="fragment">
+						<img src="images/hpack.png"><br>
+						<small>https://hpbn.co/http2/</small>
+					</div>
+				</section>
+				<section>
+					<img src="images/hpack_compression.png"><br>
+					<small>https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/</small>
+				</section>
+				<section>
+					<img src="images/ingress_1.png"><br>
+					<small>https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/</small>
+				</section>
+				<section>
+					<img src="images/ingress_2.png"><br>
+					<small>https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/</small>
+				</section>
+				<section>
+					<img src="images/ingress_stats.png"><br>
+					<small>https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/</small>
+				</section>
+				<section>
+					<img src="images/egress_1.png"><br>
+					<small>https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/</small>
+				</section>
+				<section>
+					<img src="images/egress_2.png"><br>
+					<small>https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/</small>
+				</section>
+				<section>
+					<img src="images/egress_stats.png"><br>
+					<small>https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/</small>
+				</section>
+				<section>
+					<iframe src="https://giphy.com/embed/zcCGBRQshGdt6" width="480" height="308" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
+				<section>
+					https://http2.github.io/http2-spec/compression.html<br>
+					https://http2.github.io/http2-spec/compression.html#static.table.definition<br>
+					https://http2.github.io/faq/#why-do-we-need-header-compression
+				</section>
+				<section>
+					multiplexing<br>
+					<div class="fragment">
+						<img src="images/multiplexing.png"><br>
+						<small>https://hpbn.co/http2/</small>
+					</div>
+				</section>
+				<section>
+					<img src="images/multiplexing_h1.png"><br>
+					<small>http://www.webpagetest.org/result/171107_JH_cf777098020e891be6f8b6dacce76c81/</small>
+				</section>
+				<section>
+					<img src="images/multiplexing_h2.png"><br>
+					<small>http://www.webpagetest.org/result/171107_V7_06052b5e21052c4e209afe926d2bcea0/</small>
+				</section>
+				<section>
+					<iframe src="https://giphy.com/embed/aWPGuTlDqq2yc" width="480" height="252" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
+				<section>
+					https://http2.github.io/faq/#why-is-http2-multiplexed<br>
+					https://http2.github.io/faq/#why-just-one-tcp-connection<br>
+				</section>
+				<section>
+					<img src="images/multiplexing_demo.png"><br>
+					<small>http://www.http2demo.io/</small>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">WiFi / Cable: 4x</li>
+						<li class="fragment">LTE: 6x</li>
+						<li class="fragment">3G: 15x</li>
+						<li class="fragment">2G: 2x</li>
+					</ul><br>
+					<small class="fragment">https://medium.com/apps-and-networking/http-2-makes-media-loading-3-15-times-faster-on-mobile-a455c3e68135</small>
+				</section>
+				<section>
+					<iframe src="https://giphy.com/embed/ToMjGpnXBTw7vnokxhu" width="480" height="289" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
+				<section>
+					server push<br>
+					<div class="fragment">
+						<img src="images/server_push.png"><br>
+						<small>https://http2.github.io/faq/#whats-the-benefit-of-server-push</small>
+					</div>
+				</section>
+				<section>
+					don'ts<br>
+					<iframe src="https://giphy.com/embed/3BL45MJDZABqg" width="480" height="237" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment"><strike style="color:red"><div style="color:black">concatenation</div></strike></li>
+						<li class="fragment"><strike style="color:red"><div style="color:black">domain sharding</div></strike></li>
+						<li class="fragment"><strike style="color:red"><div style="color:black">CDNs</div></strike></li>
+						<li class="fragment"><strike style="color:red"><div style="color:black">spritesheets</div></strike></li>
+					</ul>
+				</section>
+				<section>
+					https://hpbn.co/http2/<br>
+					https://http2.github.io
+				</section>
+				<section>
+					<iframe src="https://giphy.com/embed/26FxCOdhlvEQXbeH6" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
+			</div>
+		</div>
+		<script src="node_modules/reveal.js/js/reveal.js"></script>
+		<script src="node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script>
+			Reveal.initialize({
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1,
+				dependencies: [
+					// Syntax highlight for <code> elements
+					{ src: 'node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				]
+			});
+		</script>
+	</body>
+</html>

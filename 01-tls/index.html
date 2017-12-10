@@ -1,0 +1,166 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/css/theme/white.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+		<style>
+		.reveal img, .reveal video, .reveal iframe {
+			max-height: 80vh;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				TLS
+				</section>
+				<section data-transition="slide-in fade-out">
+					SSL (secure socket layer) 3<br>&nbsp;
+				</section>
+				<section data-transition="fade">
+					<strike><div style="color:red">SSL (secure socket layer) 3</div></strike>
+					<div style="color:green">TLS (transport layer security)</div>
+				</section>
+				<section>Why should we use TLS?</section>
+				<section>
+					<ul>
+						<li class="fragment">data protection</li>
+						<li class="fragment">Encryption<br>
+						"A mechanism to obfuscate what is sent from one host to another."</li>
+						<li class="fragment">Authentication<br>
+						"A mechanism to verify the validity of provided identification material."</li>
+						<li class="fragment">Integrity<br>
+						"A mechanism to detect message tampering and forgery."</li>
+						<li class="fragment">HTTP/2!</li>
+					</ul>
+					<div class="fragment"><small>https://hpbn.co/tls</small></div>
+				</section>
+				<section>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/0oBx7Jg4m-o" frameborder="0" allowfullscreen></iframe>
+				</section>
+				<section>HTTP/2</section>
+				<section>
+					<ul>
+						<li class="fragment">no HTTP/2 (h2) without TLS</li>
+						<li class="fragment">h2c(leartext) not available in browsers</li>
+					</ul>
+				</section>
+				<section>
+					<img src="images/unencrypted.png"><br>
+					<small>https://http2.github.io/faq/#does-http2-require-encryption</small>
+				</section>
+				<section>
+					<img src="images/tls10.png"><br>
+					<small>https://caniuse.com/#search=tls</small>
+				</section>
+				<section>
+					<img src="images/tls11.png"><br>
+					<small>https://caniuse.com/#search=tls</small>
+				</section>
+				<section>
+					<img src="images/tls12.png"><br>
+					<small>https://caniuse.com/#search=tls</small>
+				</section>
+				<section>
+					<img src="images/tls13.png"><br>
+					<small>https://caniuse.com/#search=tls</small>
+				</section>
+				<section>
+					<img src="images/http2.png"><br>
+					<small>https://caniuse.com/#feat=http2</small>
+				</section>
+				<section>Is TLS slow?
+					<div class="fragment">it depends</div>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">round-trip time (RTT)</li>
+						<li class="fragment">TLS handshake</li>
+						<li class="fragment">TLS session resumption</li>
+						<li class="fragment">TLS False Start</li>
+						<li class="fragment">TLS record size optimization</li>
+						<li class="fragment">Early termination</li>
+						<li class="fragment">HTTP Strict Transport Security (HSTS)</li>
+						<li class="fragment">OCSP(Online Certificate Status Protocol) stapling</li>
+					</ul>
+					<div class="fragment"><small>https://hpbn.co/transport-layer-security-tls/#optimizing-for-tls</small></div>
+				</section>
+				<section>
+					<img src="images/tls-handshake.png"><br>
+					<small>https://hpbn.co/transport-layer-security-tls/#optimizing-for-tls</small>
+				</section>
+				<section>
+					<img src="images/tls-handshake-session-ids.png"><br>
+					<small>https://hpbn.co/transport-layer-security-tls/#optimizing-for-tls</small>
+				</section>
+				<section>
+					<img src="images/tls-handshake-false-start.png"><br>
+					<small>https://hpbn.co/transport-layer-security-tls/#optimizing-for-tls</small>
+				</section>
+				<section>
+					<img src="images/performance-server.png"><br>
+					<small>https://istlsfastyet.com/</small>
+				</section>
+				<section>
+					<img src="images/performance-cdn.png"><br>
+					<small>https://istlsfastyet.com/</small>
+				</section>
+				<section>
+					<img src="images/chain-of-trust.png"><br>
+					<small>https://hpbn.co/transport-layer-security-tls/#optimizing-for-tls</small>
+				</section>
+				<section>frontend solutions</section>
+				<section>
+					<ul>
+						<li class="fragment">preconnect</li>
+						<li class="fragment">dns-prefetch</li>
+					</ul>
+				</section>
+				<section>
+					<pre><code class="html" data-trim>
+					<link href="https://cdn.domain.com" rel="preconnect">
+					<link href="https://cdn.domain.com" rel="dns-prefetch">
+					</code></pre>
+				</section>
+				<section>
+					<img src="images/preconnect-har.png"><br>
+					<small>https://www.keycdn.com/blog/resource-hints/</small>
+				</section>
+				<section>
+					<img src="images/preconnect.png"><br>
+					<small>https://caniuse.com/#feat=link-rel-preconnect</small>
+				</section>
+				<section>
+					<img src="images/dns-prefetch.png"><br>
+					<small>https://caniuse.com/#feat=link-rel-dns-prefetch</small>
+				</section>
+				<section>
+					<iframe src="https://giphy.com/embed/5VKbvrjxpVJCM" width="480" height="384" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
+				<section>
+					https://istlsfastyet.com/<br>
+					https://hpbn.co/tls
+				</section>
+				<section>
+					<iframe src="https://giphy.com/embed/xT77XWum9yH7zNkFW0" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
+			</div>
+		</div>
+		<script src="node_modules/reveal.js/js/reveal.js"></script>
+		<script src="node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script>
+			Reveal.initialize({
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1,
+				dependencies: [
+					// Syntax highlight for <code> elements
+					{ src: 'node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				]
+			});
+		</script>
+	</body>
+</html>
