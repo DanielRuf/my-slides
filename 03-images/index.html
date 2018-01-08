@@ -1,0 +1,153 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/css/theme/white.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+		<style>
+		.reveal img, .reveal video, .reveal iframe {
+			max-height: 80vh;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					image optimization
+				</section>
+				<section>
+					image creation
+				</section>
+				<section>
+					bitdepth
+				</section>
+				<section>
+					baseline vs progressive
+				</section>
+				<section>
+					<img src="images/baseline.png"><br>
+					<small>https://images.guide</small>
+				</section>
+				<section>
+					<img src="images/progressive.png"><br>
+					<small>https://images.guide</small>
+				</section>
+				<section>
+					<img src="images/progressive_loading.png"><br>
+					<small>https://images.guide</small>
+				</section>
+				<section>
+					<img src="images/baseline_vs_progressive.png"><br>
+					<small>http://www.webpagetest.org/video/compare.php?tests=180108_NX_e87903b49c5d575053c6510403553053,180108_EG_8573ce3fbc2a2dd517f6499d2a46a550</small>
+				</section>
+				<section>
+					subsampling
+				</section>
+				<section>
+					<img src="images/subsampling.png"><br>
+					<small>https://images.guide</small>
+				</section>
+				<section>
+					<img src="images/subsampling_2.png"><br>
+					<small>https://images.guide</small>
+				</section>
+				<section>
+					solutions in the frontend
+				</section>
+				<section>
+					<ul>
+						<li>picture / srcset</li>
+						<li>art direction</li>
+					</ul>
+				</section>
+				<section>
+					<iframe style="width: 100%; height: 100%; border:none;" src="http://udacity.github.io/responsive-images/examples/3-08/pictureArtDirection/"></iframe><br>
+					<small>http://udacity.github.io/responsive-images/examples/3-08/pictureArtDirection/</small>
+				</section>
+				<section>
+					<ul>
+						<li>lazyloading (lazysizes)</li>
+						<li>preload (http push)</li>
+						<li>svg sprites</li>
+					</ul>
+				</section>
+				<section>
+					<pre><code class="html" data-trim>
+					<link rel="preload" as="image" href="logo.jpg"/>
+					Link: &lt;https://example.com/logo-hires.jpg&gt;; rel=preload; as=image
+					</code></pre>
+				</section>
+				<section>
+					alternatives
+				</section>
+				<section>
+					gif vs video<br>
+					<div class="fragment">use video (with fallback)!</div>
+				</section>
+				<section>
+					<img src="images/gif_vs_video.png"><br>
+					<small>https://images.guide</small>
+				</section>
+				<section>
+					automation
+				</section>
+				<section>
+					<img src="https://blog.chef.io/wp-content/uploads/2012/02/automate-all-the-things.png"><br>
+					<small>https://blog.chef.io/wp-content/uploads/2012/02/automate-all-the-things.png</small>
+				</section>
+				<section>
+					development
+				</section>
+				<section>
+					<ul>
+						<li>svgo</li>
+						<li>gifsicle</li>
+						<li>jpegtran</li>
+						<li>optipng</li>
+						<li>pngquant</li>
+						<li>guetzli</li>
+						<li>mozjpeg</li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li>imagemin</li>
+						<li>sharp (libvips)</li>
+						<li>Photoshop (export for web)</li>
+					</ul>
+				</section>
+				<section>
+					monitoring / auditing
+				</section>
+				<section>
+					performance budgets
+				</section>
+				<section>
+					<ul>
+						<li>lighthouse</li>
+						<li>psi</li>
+						<li>sitespeed.io</li>
+					</ul>
+				</section>
+				<section>
+					https://images.guide
+				</section>
+			</div>
+		</div>
+		<script src="node_modules/reveal.js/js/reveal.js"></script>
+		<script src="node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script>
+			Reveal.initialize({
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1,
+				dependencies: [
+					// Syntax highlight for <code> elements
+					{ src: 'node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				]
+			});
+		</script>
+	</body>
+</html>
