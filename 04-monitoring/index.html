@@ -1,0 +1,229 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/css/theme/white.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+		<style>
+		.reveal img, .reveal video, .reveal iframe {
+			max-height: 80vh;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					monitoring quality and performance
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">web services</li>
+						<li class="fragment">browser extensions</li>
+						<li class="fragment">devtools</li>
+						<li class="fragment">scripts / tools</li>
+					</ul>
+				</section>
+				<section>
+					web services
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">WebPagetest</li>
+						<li class="fragment">Pingdom</li>
+						<li class="fragment">GTmetrix</li>
+						<li class="fragment">sonarwhal</li>
+						<li class="fragment">KeyCDN</li>
+						<li class="fragment">PageSpeed Insights</li>
+						<li class="fragment">Yellow Lab Tools</li>
+						<li class="fragment">Sucuri</li>
+						<li class="fragment">Uptrends</li>
+						<li class="fragment">Varvy Pagespeed</li>
+						<li class="fragment">&hellip;</li>
+					</ul>
+				</section>
+				<section>
+					browser
+				</section>
+				<section>
+					Chrome 64+<br>
+					<img src="images/devtools.png"><br>
+					<small>https://developers.google.com/web/updates/2017/11/devtools-release-notes#perf-monitor</small>
+				</section>
+				<section>
+					scripts / tools
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">gmetais/YellowLabTools</li>
+						<li class="fragment">marcelduran/webpagetest-api</li>
+						<li class="fragment">macbre/phantomas</li>
+						<li class="fragment">speedracer/speedracer</li>
+						<li class="fragment">okor/justice</li>
+					</ul>
+				</section>
+				<section>
+					automated / CI
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">sonarwhal/sonarwhal</li>
+						<li class="fragment">GoogleChrome/lighthouse</li>
+						<li class="fragment">addyosmani/psi</li>
+						<li class="fragment">sitespeedio/sitespeed.io</li>
+					</ul>
+				</section>
+				<section>
+					performance budgets
+				</section>
+				<section>
+					<pre><code class="json" data-trim>
+					{
+					  "browsertime.pageSummary": [{
+					    "metric": "statistics.timings.firstPaint.median",
+					    "max": 1000
+					    }, {
+					    "metric": "statistics.visualMetrics.FirstVisualChange.median",
+					    "max": 1000
+					  }],
+					  "coach.pageSummary": [{
+					    "metric": "advice.performance.score",
+					    "min": 75
+					  }, {
+					    "metric": "advice.info.domElements",
+					    "max": 200
+					  }, {
+					    "metric": "advice.info.domDepth.max",
+					    "max": 10
+					  }, {
+					    "metric": "advice.info.iframes",
+					    "max": 0
+					  }, {
+					    "metric": "advice.info.pageCookies.max",
+					    "max": 5
+					  }],
+					  "pagexray.pageSummary": [{
+					    "metric": "transferSize",
+					    "max": 100000
+					  }, {
+					    "metric": "requests",
+					    "max": 20
+					  }, {
+					    "metric": "missingCompression",
+					    "max": 0
+					  }, {
+					    "metric": "contentTypes.css.requests",
+					    "max": 1
+					  }, {
+					    "metric": "contentTypes.image.transferSize",
+					    "max": 100000
+					  },{
+					    "metric": "documentRedirects",
+					    "max":0
+					  }]
+					}
+					</code></pre>
+				</section>
+				<section>
+					http://v3.danielmall.com/articles/how-to-make-a-performance-budget<br><br>
+					http://designingforperformance.com<br>
+					http://designingforperformance.com/weighing-aesthetics-and-performance
+				</section>
+				<section>
+					https://calendar.perfplanet.com<br>
+					http://www.perfplanet.com<br>
+					https://github.com/davidsonfellipe/awesome-wpo
+				</section>
+				<section>
+					build monitoring (webpack)
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">FormidableLabs/webpack-dashboard</li>
+						<li class="fragment">FormidableLabs/electron-webpack-dashboard</li>
+						<li class="fragment">zouhir/jarvis</li>
+						<li class="fragment">webpackmonitor/webpackmonitor</li>
+					</ul>
+				</section>
+				<section>
+					<img src="images/webpack-dashboard.png"><br>
+					<small>https://github.com/FormidableLabs/webpack-dashboard</small>
+				</section>
+				<section>
+					<img src="images/electron-webpack-dashboard.png"><br>
+					<small>https://github.com/FormidableLabs/electron-webpack-dashboard</small>
+				</section>
+				<section>
+					<img src="images/jarvis-2.png"><br>
+					<small>https://github.com/zouhir/jarvis</small>
+				</section>
+				<section>
+					<img src="images/webpack-monitor-1.gif"><br>
+					<small>https://github.com/webpackmonitor/webpackmonitor</small>
+				</section>
+				<section>
+					<img src="images/webpack-monitor-2.gif"><br>
+					<small>https://github.com/webpackmonitor/webpackmonitor</small>
+				</section>
+				<section>
+					<img src="images/webpack-monitor-3.gif"><br>
+					<small>https://github.com/webpackmonitor/webpackmonitor</small>
+				</section>
+				<section>
+					https://github.com/webpack-contrib/awesome-webpack
+				</section>
+				<section>
+					accessability (a11y)
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Section 508</li>
+						<li class="fragment">WCAG 2.0 A</li>
+						<li class="fragment">WCAG 2.0 AA (recommended)</li>
+						<li class="fragment">WCAG 2.0 AAA</li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Swiper</li>
+						<li class="fragment">flatpickr</li>
+						<li class="fragment">? &hellip;</li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">addyosmani/a11y</li>
+						<li class="fragment">pa11y/pa11y</li>
+						<li class="fragment">pa11y/pa11y-ci</li>
+						<li class="fragment">open-indy/Koa11y</li>
+					</ul>
+				</section>
+				<section>
+					<img src="images/koa11y-1.png"><br>
+					<small>https://github.com/open-indy/Koa11y</small>
+				</section>
+				<section>
+					<img src="images/koa11y-2.png"><br>
+					<small>https://github.com/open-indy/Koa11y</small>
+				</section>
+				<section>
+					https://github.com/brunopulis/awesome-a11y
+				</section>
+			</div>
+		</div>
+		<script src="node_modules/reveal.js/js/reveal.js"></script>
+		<script src="node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script>
+			Reveal.initialize({
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1,
+				dependencies: [
+					// Syntax highlight for <code> elements
+					{ src: 'node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				]
+			});
+		</script>
+	</body>
+</html>
