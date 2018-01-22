@@ -1,0 +1,206 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/css/theme/white.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+		<style>
+		.reveal img, .reveal video, .reveal iframe {
+			max-height: 80vh;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					webfonts
+				</section>
+				<section>
+					subsetting (unicode range, languages)
+				</section>
+				<section>
+					<pre><code class="css" data-trim>
+					@font-face {
+					  font-family: 'UnicodeRange';
+					  src: local('Times New Roman');
+					  unicode-range: U+0025-00FF;
+					}
+					</code></pre>
+				</section>
+				<section>
+					<img src="images/unicoderange.png"><br>
+					<small>https://developer.mozilla.org/de/docs/Web/CSS/@font-face/unicode-range</small>
+				</section>
+				<section>
+					<img src="images/unicoderange_browsersupport.png"><br>
+					<small>https://caniuse.com/#feat=font-unicode-range</small>
+				</section>
+				<section>
+					<img src="images/unicoderange_bugs.png"><br>
+					<small>https://docs.google.com/spreadsheets/d/18h-1gaosu4-KYxH8JUNL6ZDuOsOKmWfauoai3CS3hPY</small>
+				</section>
+				<section>
+					<ul>
+						<li>separate font-weights</li>
+						<li>separate font-styles</li>
+						<li>use woff and woff2</li>
+					</ul>
+				</section>
+				<section>
+					<pre><code class="css" data-trim>
+					/* rubik-regular - latin */
+					@font-face {
+					  font-family: 'Rubik';
+					  font-style: normal;
+					  font-weight: 400;
+					  src: url('fonts/rubik-v7-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+					  url('fonts/rubik-v7-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+					}
+					/* rubik-italic - latin */
+					@font-face {
+					  font-family: 'Rubik';
+					  font-style: italic;
+					  font-weight: 400;
+					  src: url('fonts/rubik-v7-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+					  url('fonts/rubik-v7-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+					}
+					</code></pre>
+				</section>
+				<section>
+					compress (zopfli)
+				</section>
+				<section>
+					use similar fallback fonts<br>
+					http://www.identifont.com/similar.html
+				</section>
+				<section>
+					<pre><code class="css" data-trim>
+					.serif {
+					  font-family: Times, Times New Roman, Georgia, serif;
+					}
+					
+					.sansserif {
+					  font-family: Verdana, Arial, Helvetica, sans-serif;
+					}
+					
+					.monospace {
+					  font-family: Lucida Console, Courier, monospace;
+					}
+					</code></pre><br>
+					<small>https://developer.mozilla.org/en-US/docs/Web/CSS/font-family</small>
+				</section>
+				<section>
+					preload / prefetch<br>
+					<pre><code class="html" data-trim>
+					<link rel="preload" href="font.woff2" as="font" type="font/woff2">
+					<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+					</code></pre>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">proper caching</li>
+						<li class="fragment">beware, CDNs can be offline (add a fallback)</li>
+						<li class="fragment">watch out for FOIT (flash of invisible text)</li>
+						<li class="fragment">watch out for FOUT (flash of unstyled text)</li>
+						<li class="fragment">avoid usage of Web Font Loader / JS</li>
+					</ul>
+				</section>
+				<section>
+					use TypeKit advanced embed code
+				</section>
+				<section>
+					<pre><code class="js" data-trim>
+					<script>
+					  (function(d) {
+					    var config = {
+					      kitId: 'xxxxxxx',
+					      scriptTimeout: 3000,
+					      async: true
+					    },
+					    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+					  })(document);
+					</script>
+					</code></pre>
+					<small>https://helpx.adobe.com/typekit/using/embed-codes.html</small>
+				</section>
+				<section>
+					<ul>
+						<li>prefer inline CSS</li>
+						<li>better CRP</li>
+						<li>prevents FOIT and FOUT</li>
+					</ul>
+				</section>
+				<section>
+					https://varvy.com/pagespeed/critical-render-path.html<br>
+					https://developers.google.com/web/fundamentals/performance/critical-rendering-path
+				</section>
+				<section>
+					host locally
+				</section>
+				<section>
+					<img src="images/fonts_wpo_comparison.png"><br>
+					<small>https://www.webpagetest.org/video/compare.php?tests=180121_CX_e21373feaf8c9ee9734eec8741ee6d37,180121_ZT_970b5f76f9c98ed9ae4909d9c0c1c768,180121_N2_a4061f30868992de069c9f5242f9eef8</small>
+				</section>
+				<section>
+					<img src="images/fonts_wpo_google_mobile.png"><br>
+					<small>https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fdanielruf.github.io%2Ffonts-wpo-test%2Fgoogle-fonts.html</small>
+				</section>
+				<section>
+					<img src="images/fonts_wpo_google_desktop.png"><br>
+					<small>https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fdanielruf.github.io%2Ffonts-wpo-test%2Fgoogle-fonts.html</small>
+				</section>
+				<section>
+					<img src="images/fonts_wpo_selfhosted_mobile.png"><br>
+					<small>https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fdanielruf.github.io%2Ffonts-wpo-test%2Fselfhosted.html</small>
+				</section>
+				<section>
+					<img src="images/fonts_wpo_selfhosted_desktop.png"><br>
+					<small>https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fdanielruf.github.io%2Ffonts-wpo-test%2Fselfhosted.html</small>
+				</section>
+				<section>
+					<img src="images/fonts_wpo_selfhosted_inline_mobile.png"><br>
+					<small>https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fdanielruf.github.io%2Ffonts-wpo-test%2Fselfhosted-inline.html</small>
+				</section>
+				<section>
+					<img src="images/fonts_wpo_selfhosted_inline_desktop.png"><br>
+					<small>https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fdanielruf.github.io%2Ffonts-wpo-test%2Fselfhosted-inline.html</small>
+				</section>
+				<section>
+					https://google-webfonts-helper.herokuapp.com/fonts<br>
+					majodev/google-webfonts-helper
+				</section>
+				<section>
+					<p>Pagespeed:</p>
+					<ol>
+						<li class="fragment">Use no web font</li>
+						<li class="fragment">Inlined HTML fonts</li>
+						<li class="fragment">Inlined CSS fonts</li>
+						<li class="fragment">Self hosted fonts</li>
+						<li class="fragment">Third party fonts</li>
+					</ol><br>
+					<small>https://varvy.com/pagespeed/web-font-options.html</small>
+				</section>
+				<section>
+					https://www.zachleat.com/web/comprehensive-webfonts<br>
+					https://varvy.com/pagespeed/web-font-options.html<br>
+					https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization<br>
+				</section>
+			</div>
+		</div>
+		<script src="node_modules/reveal.js/js/reveal.js"></script>
+		<script src="node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script>
+			Reveal.initialize({
+				width: "100%",
+				height: "100%",
+				margin: 0,
+				minScale: 1,
+				maxScale: 1,
+				dependencies: [
+					// Syntax highlight for <code> elements
+					{ src: 'node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				]
+			});
+		</script>
+	</body>
+</html>
